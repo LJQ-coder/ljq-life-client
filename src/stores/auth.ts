@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import { authApi } from '@/api/modules/auth'
 
 export const useAuthStore = defineStore('auth', () => {
-  const token = ref<string | null>(localStorage.getItem('token'))
+  const token = ref<string | null>(null)
 
   const isLogged = computed(() => {
     return !!token.value
@@ -12,7 +12,6 @@ export const useAuthStore = defineStore('auth', () => {
   // 设置token
   const setToken = (newToken: string | null) => {
     token.value = newToken
-    newToken ? localStorage.setItem('token', newToken) : localStorage.removeItem('token')
   }
 
   // 退出登录
@@ -23,8 +22,9 @@ export const useAuthStore = defineStore('auth', () => {
   // 刷新token
   const refreshToken = async () => {
     try {
-      const res = await authApi.refreshToken()
-      setToken(res.data.access_token)
+      const res: any = await authApi.refreshToken()
+      setToken(res.access_token)
+      return res.access_token
     } catch (error) {
       if (!navigator.onLine) {
         // 网络断开时的特殊处理

@@ -46,18 +46,18 @@ const activeName = ref('log')
 
 const signUpForm = reactive({
   username: '',
-  mobile: '',
+  email: '',
   password: '',
 })
 
 const loginForm = reactive({
-  mobile: '',
+  email: '',
   password: '',
 })
 
 const logInItems = computed(() => {
   return [
-    { prop: 'mobile', label: 'Mobile', placeholder: '请输入手机号' },
+    { prop: 'email', label: 'Email', placeholder: '请输入邮箱号' },
     { prop: 'password', label: 'Password', placeholder: '请输入密码' }
   ]
 })
@@ -65,7 +65,7 @@ const logInItems = computed(() => {
 const signUpItems = computed(() => {
   return [
     { prop: 'username', label: 'Username', placeholder: '请输入账号名称' },
-    { prop: 'mobile', label: 'Mobile', placeholder: '请输入手机号' },
+    { prop: 'email', label: 'Email', placeholder: '请输入邮箱号' },
     { prop: 'password', label: 'Password', placeholder: '请输入密码' }
   ]
 })
@@ -80,6 +80,7 @@ const login = async () => {
 const signUp = async () => {
   const res = await authApi.register(signUpForm)
   console.log(res);
+  // 提示请查看邮箱并注册
 }
 </script>
 <style lang="less" scoped>
