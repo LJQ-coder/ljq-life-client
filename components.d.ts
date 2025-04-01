@@ -8,17 +8,27 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppFrame: typeof import('./src/views/_frame/app-frame.vue')['default']
+    AppHeader: typeof import('./src/components/app-header.vue')['default']
+    AppNavbar: typeof import('./src/components/app-navbar.vue')['default']
+    EditInput: typeof import('./src/common/edit-input.vue')['default']
     Home: typeof import('./src/views/home/home.vue')['default']
+    LifeCard: typeof import('./src/views/home/components/life-card.vue')['default']
     LjqInput: typeof import('./src/views/login/common/ljq-input.vue')['default']
     LogForm: typeof import('./src/views/login/components/log-form.vue')['default']
     Login: typeof import('./src/views/login/login.vue')['default']
     LogIn: typeof import('./src/views/login/components/log-in.vue')['default']
+    Profile: typeof import('./src/views/profile/profile.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SignUp: typeof import('./src/views/login/components/sign-up.vue')['default']
+    Upload: typeof import('./src/views/upload/upload.vue')['default']
     VanButton: typeof import('vant/es')['Button']
+    VanDivider: typeof import('vant/es')['Divider']
     VanField: typeof import('vant/es')['Field']
+    VanIcon: typeof import('vant/es')['Icon']
     VanTab: typeof import('vant/es')['Tab']
     VanTabs: typeof import('vant/es')['Tabs']
+    VanUploader: typeof import('vant/es')['Uploader']
   }
 }

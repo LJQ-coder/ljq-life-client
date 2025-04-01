@@ -2,6 +2,8 @@ import axios from 'axios'
 import { HTTP_CONFIG } from '../config/http'
 import setupInterceptors from './interceptors'
 
+axios.defaults.withCredentials = true;
+
 const createPureInstance = () => {
   return axios.create(HTTP_CONFIG)
 }

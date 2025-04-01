@@ -73,8 +73,8 @@ const signUpItems = computed(() => {
 const login = async () => {
   const res: any = await authApi.login(loginForm)
   const { setToken } = useAuthStore()
-  setToken(res.token)
-  router.push('/')
+  setToken(res.data.token)
+  router.push('/home')
 }
 
 const signUp = async () => {

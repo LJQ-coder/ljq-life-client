@@ -13,7 +13,8 @@ const router = createRouter({
       name: 'home',
       component: () => import('@/views/home/home.vue'),
       meta: {
-        requiresAuth: true
+        requiresAuth: true,
+        showNavbar: true,
       }
     },
     {
@@ -24,7 +25,26 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('@/views/login/login.vue'),
       meta: {
-        requiresAuth: false
+        requiresAuth: false,
+        showNavbar: false,
+      }
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      component: () => import('@/views/profile/profile.vue'),
+      meta: {
+        requiresAuth: true,
+        showNavbar: true,
+      }
+    },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: () => import('@/views/upload/upload.vue'),
+      meta: {
+        requiresAuth: true,
+        showNavbar: false,
       }
     },
   ],

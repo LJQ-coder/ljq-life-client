@@ -21,7 +21,7 @@ export default defineConfig({
       resolvers: [VantResolver()],
     }),
     Components({
-      dirs: ['src/views'], // 自定义组件所在的目录，可根据实际情况修改
+      dirs: ['src/views', 'src/components', 'src/common'], // 自定义组件所在的目录，可根据实际情况修改
       extensions: ['vue'], // 组件文件的扩展名
       deep: true, // 是否递归查找子目录
       // dts: 'src/components.d.ts',

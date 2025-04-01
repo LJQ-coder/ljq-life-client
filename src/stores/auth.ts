@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-import { authApi } from '@/api/modules/auth'
+import { authApi } from '@/api/modules'
 
 export const useAuthStore = defineStore('auth', () => {
   const token = ref<string | null>(null)
@@ -17,6 +17,7 @@ export const useAuthStore = defineStore('auth', () => {
   // 退出登录
   const logout = () => {
     setToken(null)
+    // 退出登录接口
   }
 
   // 刷新token
