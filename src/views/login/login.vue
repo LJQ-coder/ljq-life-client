@@ -72,14 +72,14 @@ const signUpItems = computed(() => {
 
 const login = async () => {
   const res: any = await authApi.login(loginForm)
-  const { setToken } = useAuthStore()
-  setToken(res.data.token)
+  const { setToken, setUserInfo } = useAuthStore()
+  setToken(res.session.token)
+  setUserInfo(res.user)
   router.push('/home')
 }
 
 const signUp = async () => {
   const res = await authApi.register(signUpForm)
-  console.log(res);
   // 提示请查看邮箱并注册
 }
 </script>

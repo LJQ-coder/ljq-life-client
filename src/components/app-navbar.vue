@@ -34,6 +34,12 @@ const handleAfterRead = (files: any) => {
 
 <style lang="less" scoped>
 .app-navbar {
+  position: fixed;  /* 新增固定定位 */
+  bottom: 0;           /* 顶部对齐 */
+  left: 0;
+  right: 0;
+  z-index: 999;
+
   display: grid; /* 将父容器设为grid容器 */
   grid-template-columns: repeat(3, 1fr);
   height: 88px;

@@ -32,6 +32,12 @@ const message = () => {
 
 <style lang="less" scoped>
 .app-header {
+  position: fixed;  /* 新增固定定位 */
+  top: 0;           /* 顶部对齐 */
+  left: 0;
+  right: 0;
+  z-index: 999;     /* 确保层级最高 */
+  
   display: flex;
   justify-content: space-between;
   align-items: center;

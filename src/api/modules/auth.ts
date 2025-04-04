@@ -12,5 +12,8 @@ export const authApi = {
   },
   refreshToken: () => {
     return serviceInstance.post('/auth/refresh-token')
+  },
+  getUserInfo: () => {
+    return serviceInstance.get('/auth/user-info')
   }
 }

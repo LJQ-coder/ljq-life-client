@@ -46,7 +46,6 @@ export const responseInterceptor = (axiosInstance: AxiosInstance) => {
         error.config._retry = true;
         try {
           const newToken = await authStore.refreshToken();
-          console.log('000000000');
 
           error.config.headers.Authorization = `Bearer ${newToken}`;
           return axiosInstance(error.config);

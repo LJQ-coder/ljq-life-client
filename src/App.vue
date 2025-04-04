@@ -1,6 +1,8 @@
 <template>
   <div class="app">
-    <RouterView />
+    <keep-alive>
+      <RouterView />
+    </keep-alive>
     <AppNavbar v-if="showNavbar"/>
   </div>
 </template>

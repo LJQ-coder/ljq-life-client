@@ -6,11 +6,13 @@
         title="Upload"
         @click-back="goBack"
       />
-      <van-uploader v-model="fileList" :after-read="afterRead" :multiple="false"/>
-      <div class="upload-caption">
-        <EditInput v-model="content"></EditInput>
+      <div>
+        <van-uploader v-model="fileList" :after-read="afterRead" :multiple="false"/>
+        <div class="upload-caption">
+          <EditInput v-model="content"></EditInput>
+        </div>
+        <van-divider />
       </div>
-      <van-divider />
     </div>
 
     <van-button
@@ -64,17 +66,12 @@ const handleEditorReady = () => {
 };
 
 const publish = async () => {
-  // const params = {
-  //  content: content.value,
-  //  title: '',
-  //  file: fileList.value[0].file
-  // }
-  console.log(fileList.value[0])
   const formData = new FormData()
   formData.append('title', '')
   formData.append('content', content.value)
   formData.append('images', fileList.value[0].file)
   await postApi.postImage(formData)
+  router.push({ name: 'home' })
 }
 
 const goBack = () => {
