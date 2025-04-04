@@ -44,13 +44,13 @@ const router = useRouter()
 
 const activeName = ref('log')
 
-const signUpForm = reactive({
+let signUpForm = reactive({
   username: '',
   email: '',
   password: '',
 })
 
-const loginForm = reactive({
+let loginForm = reactive({
   email: '',
   password: '',
 })
