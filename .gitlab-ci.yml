@@ -1,0 +1,34 @@
+# 定义阶段
+stages:
+  - build
+  - test
+  - deploy
+
+# 构建阶段
+build:
+  stage: build
+  script:
+    - npm install  # 安装项目依赖
+  tags:
+    - "mac runner"  # 使用带有 mac runner 标签的 Runner
+
+# 测试阶段
+test:
+  stage: test
+  script:
+    - npm test  # 运行测试用例
+  tags:
+    - "mac - runner"
+
+# 部署阶段
+deploy:
+  stage: deploy
+  script:
+    - ssh ljiaqi@localhost 'if [ ! -d "/Users/ljiaqi/myproject" ]; then mkdir -p /Users/ljiaqi/myproject; cd /Users/ljiaqi/myproject; git clone <your_repository_url> .; else cd /Users/ljiaqi/myproject; git pull; fi'
+    - ssh ljiaqi@localhost 'cd /Users/ljiaqi/myproject && npm install'  # 在服务器上安装依赖
+    - ssh ljiaqi@localhost 'cd /Users/ljiaqi/myproject && npm start'  # 启动项目
+  tags:
+    - "mac - runner"
+  only:
+    - main  # 仅在 main 分支有变更时触发部署
+    
