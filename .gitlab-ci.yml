@@ -24,7 +24,7 @@ test:
 deploy:
   stage: deploy
   script:
-    - ssh ljiaqi@localhost 'if [ ! -d "/Users/ljiaqi/myproject" ]; then mkdir -p /Users/ljiaqi/myproject; cd /Users/ljiaqi/myproject; git clone <your_repository_url> .; else cd /Users/ljiaqi/myproject; git pull; fi'
+    - ssh ljiaqi@localhost 'if [ ! -d "/Users/ljiaqi/myproject" ]; then mkdir -p /Users/ljiaqi/myproject; cd /Users/ljiaqi/myproject; git clone git@gitlab.com:ljq-li/life-client.git .; else cd /Users/ljiaqi/myproject; git pull; fi'
     - ssh ljiaqi@localhost 'cd /Users/ljiaqi/myproject && npm install'  # 在服务器上安装依赖
     - ssh ljiaqi@localhost 'cd /Users/ljiaqi/myproject && npm start'  # 启动项目
   tags:
