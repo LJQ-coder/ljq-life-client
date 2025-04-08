@@ -1,15 +1,19 @@
 <template>
-  <div class="app-header">
-    <div>
-      <van-icon
-        v-if="!hideLeft"
-        @click="handleClick"
-        name="arrow-left"
-        class="left-icon"
-      />
-      <span class="title">{{ title }}</span>
+  <div>
+    <div class="app-header">
+      <div>
+        <van-icon
+          v-if="!hideLeft"
+          @click="handleClick"
+          name="arrow-left"
+          class="left-icon"
+        />
+        <span class="title">{{ title }}</span>
+      </div>
+      <slot name="right"></slot>
     </div>
-    <slot name="right"></slot>
+    <!-- 占位元素 -->
+    <div class="header-placeholder"></div>
   </div>
 </template>
 
@@ -37,7 +41,7 @@ const message = () => {
   left: 0;
   right: 0;
   z-index: 999;     /* 确保层级最高 */
-  
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -56,4 +60,9 @@ const message = () => {
     font-weight: bold;
   }
 }
-</style>
+
+/* 占位元素样式 */
+.header-placeholder {
+  height: 48px; /* 与 app-header 高度相同 */
+}
+</style>    

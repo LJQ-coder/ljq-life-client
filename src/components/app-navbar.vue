@@ -1,11 +1,15 @@
 <template>
-<div class="app-navbar">
-  <i @click="switchTab('home')" class="iconfont icon-shouye-zhihui grid-item" :class="{ 'active': activeTab === 'home' }"></i>
-  <van-uploader class="grid-item" :after-read="handleAfterRead" :multiple="false">
-    <van-icon @click="switchTab('upload')" name="add" class="add-content grid-item"/>
-  </van-uploader>
-  <i @click="switchTab('profile')" class="iconfont icon-gerenzhongxin-zhihui grid-item" :class="{ 'active': activeTab === 'profile' }"></i>
-</div>
+  <div>
+    <div class="app-navbar">
+      <i @click="switchTab('home')" class="iconfont icon-shouye-zhihui grid-item" :class="{ 'active': activeTab === 'home' }"></i>
+      <van-uploader class="grid-item" :after-read="handleAfterRead" :multiple="false">
+        <van-icon @click="switchTab('upload')" name="add" class="add-content grid-item"/>
+      </van-uploader>
+      <i @click="switchTab('profile')" class="iconfont icon-gerenzhongxin-zhihui grid-item" :class="{ 'active': activeTab === 'profile' }"></i>
+    </div>
+    <!-- 占位元素 -->
+    <div class="navbar-placeholder"></div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -35,7 +39,7 @@ const handleAfterRead = (files: any) => {
 <style lang="less" scoped>
 .app-navbar {
   position: fixed;  /* 新增固定定位 */
-  bottom: 0;           /* 顶部对齐 */
+  bottom: 0;           /* 底部对齐 */
   left: 0;
   right: 0;
   z-index: 999;
@@ -73,5 +77,9 @@ const handleAfterRead = (files: any) => {
     }
   }
 }
-</style>
 
+/* 占位元素样式 */
+.navbar-placeholder {
+  height: 88px; /* 与 app-navbar 高度相同 */
+}
+</style>    
