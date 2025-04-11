@@ -1,8 +1,10 @@
 <template>
   <div class="app">
-    <keep-alive>
-      <RouterView />
-    </keep-alive>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
     <AppNavbar v-if="showNavbar"/>
   </div>
 </template>
