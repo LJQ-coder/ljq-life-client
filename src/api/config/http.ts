@@ -1,5 +1,7 @@
+const baseURL = `${import.meta.env.VITE_API_BASE_URL}/api`;
+
 export const HTTP_CONFIG = {
-  baseURL: 'api',
+  baseURL,
   timeout: 10000,
 }
 
